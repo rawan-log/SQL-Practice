@@ -1,3 +1,73 @@
+/*INSERT INTO transactions(amount,customer_id)
+VALUES (4.99,3),
+       (2.89,2),
+	(3.38,3),
+	  (4.99,1);
+SELECT*FROM transactions;
+
+/*ALTER TABLE transactions
+ADD CONSTRAINT fk_customer_id the name of the key (not neccesary)
+FOREIGN KEY (customer_id)REFERENCES customers(customer_id); to apply a new foreign key 
+/*ALTER TABLE transactions
+DROP FOREIGN KEY transactions_ibf; to get rid of a foregin key
+/*CREATE TABLE transactions (
+      transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+      amount DECIMAL(5,2),
+      customer_id INT,
+      FOREIGN KEY (customer_id)REFERENCES customers(customer_id) a forregin key is a key link between two tables
+      );
+      SELECT*FROM transactions;
+
+/*INSERT INTO customers (first_name,last_name)
+VALUES ("Fred","Fish"),
+      ("Larry","Lobster"),
+      ("Bubble","BASS");
+SELECT *FROM customers;
+      
+
+/*CREATE TABLE customers(
+customer_id INT PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(50),
+last_name VARCHAR(50)
+);
+/*INSERT INTO transactions (amount)
+VALUES (6.89);
+SELECT*FROM transactions;
+/*DELETE FROM transactions;
+/*ALTER TABLE transactions if i've already made my table and wanted to add auto increment 
+AUTO_INCREMENT=1000; starting from 1000
+/*INSERT INTO transactions (amount)
+VALUES (4.99);
+SELECT *FROM transactions; the transaction id has been automatically set to 1 fot the first row and the second to 2 and etc
+
+/*CREATE TABLE transactions (
+  transaction_id INT PRIMARY KEY AUTO_INCREMENT, we need primary key for auto increment to work
+  amount DECIMAL(5,2) 
+  );
+
+/* INSERT INTO transactions
+ VALUES (1003,4.99); if i try to type in the same transaction id (primary key) or Null it will show an error though they can share the same data but not the primary key
+ /* ALTER TABLE transactions 
+ ADD CONSTRAINT 
+ PRIMARY KEY (transaction_id);  if i want to add primary key constraint after creating the table /
+
+ /*CREATE TABLE transactions (
+  transaction_id INT PRIMARY KEY,
+  amount DECIMAL(5,2) we added primary key while creating the table
+  );
+ 
+ /*INSERT INTO products (product_id,product_name)
+ VALUES (104,"straw"),
+ (105,"napkin");
+ SELECT *FROM products;
+/*ALTER TABLE products 
+ALTER price SET DEFAULT 0;
+
+/*CREATE TABLE products (
+product_id INT,
+product_name VARCHAR(25),
+price DECIMAL (4,2) DEFAULT 0
+
 /*ALTER TABLE employees
 DROP CHECK chk_hourly_pay; to delete the check 
 chk_hourly_pay is the name of the check that i gave
@@ -30,7 +100,6 @@ product_id INT ,
 product_name VARCHAR(25) UNIQUE,   product name is unique which means the product name cannot be repeated
 price DECIMAL(4,2) if  i dont want this table to have null values i add NOT NULL next to to the column
 );
-
 
 /*DROP TABLE test;
 INSERT INTO test
@@ -65,26 +134,11 @@ WHERE employee_id=6;
 FROM employees
 WHERE hire_date IS NULL; or IS NOT NULL 
 
-
-
 /*SELECT *
 FROM employees
 WHERE hourly_paid>=15;
-
-
-
-
-
-
 
 /*INSERT INTO employees (employee_id,first_name,last_name)
 /*VALUES(6,"Sheldon","Plankton");*/
 /*VALUES (1,"EUGENE","Krabs","krab@gmail.com",25.50,"2023-01-02");*/
 /*VALUES (2,"Squidward","Tentacles","squidward@gmail.com",15.00,"2023-01-03"),(3,"Spongebob","Squarepants","spongebob@gmail.com",15.00,"2023-01-03");*/
-
-
-
-
-/*SELECT * FROM employees;
-
-
