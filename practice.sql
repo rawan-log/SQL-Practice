@@ -1,3 +1,54 @@
+/*SELECT *FROM employees
+WHERE job LIKE "_a%";
+
+/*SELECT * FROM employees 
+WHERE job LIKE "_ook";
+
+/*SELECT * FROM employees
+WHERE last_name LIKE "k%";
+
+/* Wild card characters % _  used to substitute one or more characters in a string 
+/*SELECT *
+FROM employees
+WHERE job IN ("cook","cashier","janitor");
+
+/*SELECT *
+FROM employees
+WHERE hire_date BETWEEN "2023-01-04" AND "2023-01-07";
+
+/*SELECT *
+FROM employees
+WHERE NOT job ="manager";
+
+/*SELECT *
+FROM employees
+WHERE job="cook" OR job="cashier";
+/*SELECT *
+FROM employees
+WHERE hire_date<"2023-01-05" AND job="cook"
+/*ALTER TABLE employees
+ADD COLUMN job VARCHAR(25) AFTER hourly_paid;
+
+/*SELECT CONCAT(first_name,"  ",last_name)AS full_name
+FROM employees;
+
+/*SELECT MAX(amount) AS "Maximum"
+FROM transactions;        SUM/MIN/AVG Functions aswell
+
+/*SELECT COUNT(amount) AS "today's transactions"
+FROM transactions;
+
+/*SELECT transaction_id, amount, first_name, last_name
+FROM transactions INNER JOIN customers
+ON transactions.customer_id=customers.customer_id; you can join specific columns only
+/*SELECT *
+FROM transactions (LEFT/RIGHT OR INNER) JOIN customers 
+ON transactions.customer_id=customers.customer_id;  join these two tables using the foreign key (customer_id)
+/*INSERT INTO customers (first_name,last_name)
+VALUES ("poppy","puff");
+SELECT * FROM customers;
+/*INSERT INTO transactions (amount,customer_id)
+VALUES (1.00,NULL);
 /*INSERT INTO transactions(amount,customer_id)
 VALUES (4.99,3),
        (2.89,2),
