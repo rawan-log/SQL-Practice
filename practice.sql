@@ -1,3 +1,44 @@
+/*Views: they're virtual tables that can be interacted with
+/*SELECT *FROM employee_attendance
+ORDER BY last_name ASC;
+/*CREATE VIEW employee_attendance AS 
+SELECT first_name,last_name
+FROM employees;
+
+/*SELECT a.customer_id,a.first_name,a.last_name,
+CONCAT(b.first_name," ", b.last_name) AS reffered_by
+FROM customers AS a  --a is the original copy
+INNER JOIN customers AS b  -- b will be the copy
+ON a.referral_id=b.customer_id;
+
+/*SELF JOIN: join another copy of a table to itself
+/*SELECT * 
+FROM customers AS a 
+INNER JOIN customers AS b
+ON a.referral_id=b.customer_id;       look at table b customer id = referral id
+
+/*SELECT first_name,last_name FROM employees
+UNION        to union two tables they must have the same number of columns or specify the columns you want tow combine
+SELECT first_name,last_name FROM customers;    Also you can use UNION ALL to include any duplicates if there is any 
+
+/*SELECT * FROM customers
+LIMIT 3,1;  using an offset (array) helps with a large dataset
+
+/*SELECT * FROM customers
+ORDER BY last_name DESC LIMIT 1;
+
+/*SELECT * FROM customers
+ORDER BY last_name LIMIT 1; show only one customer using the last name which is arranged alphabetically
+
+/*SELECT * FROM customers
+LIMIT 3; show only three customers
+
+/*SELECT *FROM transactions
+ORDER BY amount,customer_id;  if amount row share the same number then order it by customer id
+
+/*SELECT *FROM employees
+ORDER BY last_name DESC;   reverse alphabetic order
+
 /*SELECT *FROM employees
 WHERE job LIKE "_a%";
 
