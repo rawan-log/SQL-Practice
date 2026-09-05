@@ -1,3 +1,47 @@
+/*SELECT COUNT(amount), customer_id
+FROM transactions
+GROUP BY customer_id
+HAVING COUNT(amount)>1;
+
+/*YOU Ccannot use a WHERE clause when Grouping BY instead use HAVING
+
+SELECT SUM(amount),customer_id
+FROM transactions
+GROUP BY customer_id;      select how much money did each customer spend here and use COUNT() for how many orders each customer made
+
+/*SELECT SUM(amount),order_date   or MIN(),MAX(),AVG(),COUNT()
+FROM transactions
+GROUP BY order_date;  select the total amount of each date 
+
+/*UPDATE transactions
+SET order_date = "2023-01-01"
+WHERE transaction_id=1;
+SELECT * FROM transactions;
+/*ALTER TABLE transactions
+ADD order_date DATE ;
+
+/*SELECT first_name,last_name
+FROM customers
+WHERE customer_id IN(SELECT DISTINCT customer_id     select customers who their id's are'nt in transactions(did'nt order )
+FROM transactions
+WHERE customer_id IS NOT NULL);
+
+/*SELECT first_name,last_name,hourly_paid
+FROM employees
+WHERE hourly_paid > (SELECT AVG(hourly_paid)FROM employees);
+/*SELECT first_name,last_name,hourly_paid,
+(SELECT AVG(hourly_paid)FROM employees) AS avg_pay
+FROM employees;     A query(a sub query);
+
+/*REmember: MySQL normally searches sequentially and UPDATE takes more time that SELECT.
+SELECT * FROM customers
+WHERE first_name="Poppy" AND last_name="Puff";
+ALTER TABLE customers
+DROP INDEX last_name_firdt_name_idx;   DELETING A MISTAKE I MADE 
+SHOW INDEXES FROM customers
+/*CREATE INDEX last_name_first_name_idx    creating multiple indexes 
+ON customers(last_name,first_name);    index searching is faster 
+
 /*Views: they're virtual tables that can be interacted with
 /*SELECT *FROM employee_attendance
 ORDER BY last_name ASC;
