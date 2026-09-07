@@ -1,3 +1,67 @@
+ UPDATE employees
+ SET hourly_paid=100
+ WHERE employee_id=1;
+ /*CREATE TRIGGER after_salary_update
+ AFTER UPDATE ON employees
+ FOR EACH ROW
+ UPDATE expenses
+ SET expense_total=expense_total+(NEW.salary-OLD.salary)
+ WHERE expense_name="salaries";
+/*INSERT INTO employees
+VALUES(6,"Sheldon","Plankton","sheldon@gamil.com",10,NULL,"Janitor","2023-01-07");  
+ /*CREATE TRIGGER after_salary_insert
+ AFTER INSERT ON employees
+ FOR EACH ROW
+ UPDATE expenses
+ SET expense_total=expense_total+NEW.salary
+ WHERE expense_name="salaries";
+ 
+ 
+ /*DELETE FROM employees 
+ WHERE employee_id=6;
+ 
+/*CREATE TRIGGER after_salary_delete
+AFTER DELETE ON employees 
+FOR EACH ROW
+UPDATE expenses
+SET expense_total=expense_total-OLD.salary
+WHERE expense_name="salaries";
+
+/*UPDATE expenses
+SET expense_total=(SELECT SUM(salary)FROM employees)
+WHERE expense_name="salaries";
+/*INSERT INTO expenses 
+VALUES (3,"taxes",0);
+/*CREATE TABLE expenses(
+   expense_id INT PRIMARY KEY,
+   expense_name VARCHAR(50),
+   expense_total DECIMAL(10,2)
+   );
+
+
+/*After adding this employee the trigger got triggered and calculated his salary(NULL) by itself
+INSERT INTO employees
+VALUES(6,"Sheldon","Plankton","sheldon@gamil.com",10,NULL,"Janitor","2023-01-07");  
+
+/*CREATE TRIGGER before_hourly_paid_insert
+BEFORE INSERT ON employees
+FOR EACH ROW
+SET NEW.salary=(NEW.hourly_paid*2080);
+/*DELETE FROM employees
+WHERE employee_id=6;
+/*UPDATE employees
+SET hourly_paid= hourly_paid+1; 
+SHOW TRIGGERS;
+/*CREATE TRIGGER before_hourly_paid_update
+BEFORE UPDATE ON employees
+FOR EACH ROW
+SET NEW.salary=(NEW.hourly_paid*2080);
+
+
+/*UPDATE employees
+SET salary= hourly_paid*2080;
+/*ALTER TABLE employees
+ADD COLUMN salary DECIMAL (10,2) AFTER hourly_paid;
 
 /*CALL look_customer("Larry","LObster");
 DELIMITER $$
