@@ -1,6 +1,59 @@
+
+/*CALL look_customer("Larry","LObster");
+DELIMITER $$
+CREATE PROCEDURE look_customer(IN f_name VARCHAR(50),
+IN l_name VARCHAR(50))
+BEGIN 
+   SELECT *
+   FROM customers
+   WHERE first_name=f_name AND last_name=l_name;
+   END$$
+   DELIMITER;
+
+/*CALL find_customer(2)
+DELIMITER $$
+CREATE PROCEDURE find_customer(IN id INT)
+BEGIN
+  SELECT *
+  FROM customers
+  WHERE customer_id=id;
+  END $$
+  DELIMITER ;
+
+/*CALL get_customers()  
+DELIMITER $$
+CREATE PROCEDURE get_customers()
+BEGIN
+SELECT * FROM customers;
+END $$
+DELIMITER;
+
+
+/*DELETE FROM customers 
+WHERE customer_id=4;
+/*ALTER TABLE transactions
+ADD CONSTRAINT fk_transactions_id
+FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+ON DELETE CASCADE;
+/*ALTER TABLE transactions
+DROP FOREIGN KEY name_of_the_constraint;
+
+/*INSERT INTO customers  we'll add the deleted customer again to practice ON DELETE CASACADE
+VALUES(4,"Push","Pop",9);
 /*DELETE FROM customers
 WHERE customer_id=4;
-SELECT*FROM customers;
+SELECT * FROM transactions;
+/*ALTER TABLE transactions
+ADD CONSTRAINT name_of_the_constraint
+FOREIGN KEY(customer_id)REFERENCES customers(customer_id) /*the primary key of the table
+ON DELETE SET NULL;
+
+/*ALTER TABLE transactions DROP FOREIGN KEY fk_customer_id;
+/*CREATE TABLE transactions (
+  transaction_id INT PRIMARY KEY,
+  amount DECIMAL(5,2) 
+  ON DELETE SET NULL  we can add it when creating a table:When a FK is deleted replace the FK with NULL
+  );
 
 /*ROLLUP,extension of the GROUP BY clause, produces another row and shows the GRAND TOTAL (super-aggregate value)
 SELECT SUM(hourly_paid) AS "hourly_pay",employee_id
