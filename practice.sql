@@ -1,4 +1,4 @@
-/*LETE FROM customers
+/*DELETE FROM customers
 WHERE customer_id=4;
 SELECT*FROM customers;
 
