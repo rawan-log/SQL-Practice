@@ -1,3 +1,18 @@
+/*LETE FROM customers
+WHERE customer_id=4;
+SELECT*FROM customers;
+
+/*ROLLUP,extension of the GROUP BY clause, produces another row and shows the GRAND TOTAL (super-aggregate value)
+SELECT SUM(hourly_paid) AS "hourly_pay",employee_id
+FROM employees
+GROUP BY employee_id WITH ROLLUP;
+SELECT COUNT(transaction_id) AS "# of orders",customer_id
+FROM transactions
+GROUP BY customer_id WITH ROLLUP;
+SELECT SUM(amount),order_date
+FROM transactions
+GROUP BY order_date WITH ROLLUP;
+
 /*SELECT COUNT(amount), customer_id
 FROM transactions
 GROUP BY customer_id
